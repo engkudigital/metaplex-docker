@@ -23,12 +23,16 @@ start_date=$3
 
 echo "solana config before:"
 solana config get
-
-solana config set --keypair ${keypair}
-solana config set --url "https://api.${network}.solana.com"
-
+echo "---------------------------------"
+echo ""
+echo "setting solana defaults:"
+solana config set --keypair ${keypair} --url "https://api.${network}.solana.com"
+echo "---------------------------------"
+echo ""
 echo "solana config after:"
 solana config get
+echo "---------------------------------"
+echo ""
 
 if [ "devnet" = "${network}" ] ; then
   echo "devnet detected, requesting airdrop"
@@ -75,6 +79,9 @@ REACT_APP_SOLANA_NETWORK=${network}
 REACT_APP_SOLANA_RPC_HOST="https://explorer-api.${network}.solana.com"
 REACT_APP_TREASURY_ADDRESS=$(solana address --keypair ${keypair})
 EOM
+
+cp -fr envfile outputs/
+cp -fr logs/ outputs/
 
 exit 0
 
