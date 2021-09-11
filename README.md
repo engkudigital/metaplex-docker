@@ -2,6 +2,10 @@
 
 ### How to use
 
+Run `./scripts/run_upload.sh <cluster-name> <date>` , for example `./scripts/run_upload.sh  devnet 2021-01-01`
+and it will go through the entire flow in the reference tutorial.
+
+I highly recommend trying with `devnet` and going through the `scripts/upload.sh` to understand how it works.
 
 ### Reference
 
