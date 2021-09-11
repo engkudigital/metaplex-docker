@@ -21,9 +21,20 @@ fi
 
 start_date=$3
 
+echo "solana config before:"
+solana config get
+
+solana config set --keypair ${keypair}
+solana config set --url "https://api.${network}.solana.com"
+
+echo "solana config after:"
+solana config get
+
 if [ "devnet" = "${network}" ] ; then
+  echo "devnet detected, requesting airdrop"
   solana airdrop 10 --keypair ${keypair}
 fi
+
 
 solana_creator_address=$(solana address)
 mkdir -p old.logs
