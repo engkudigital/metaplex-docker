@@ -1,0 +1,7 @@
+assets
+.cache
+logs
+old.logs
+run_upload.sh
+*.swp
+envfile
