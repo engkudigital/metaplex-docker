@@ -8,6 +8,7 @@ I highly recommend trying with `devnet` and going through the [scripts/run_uploa
 2. Go over [Validating your project assets](https://hackmd.io/@levicook/HJcDneEWF#Validating-your-project-assets) and make sure your `JSON` is filled as expected.
 3. Currently this flow will look for `__creators__` inside the `JSON` and replace it with your `solana address` during the `upload` process.
 4. Run `./scripts/run_upload.sh <cluster-name> <date>` , for example `./scripts/run_upload.sh  devnet 2021-01-01` and it will go through the entire flow in the [Metaplex Candy Machine Tutorial](https://hackmd.io/@levicook/HJcDneEWF).
+5. Check the contents of `output/output.log` , you'll see the contents of the `.env` file you need to create your [candy-machin-mint](https://github.com/exiled-apes/candy-machine-mint)
 
 ### File Structure
 * [scripts/run_upload.sh](scripts/upload.sh) - Wrapper helper, main script to use.
