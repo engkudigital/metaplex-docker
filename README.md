@@ -2,14 +2,27 @@
 
 ### How to use
 
-Run `./scripts/run_upload.sh <cluster-name> <date>` , for example `./scripts/run_upload.sh  devnet 2021-01-01`
-and it will go through the entire flow in the reference tutorial.
+I highly recommend trying with `devnet` and going through the [scripts/run_upload.sh](scripts/upload.sh) and  [scripts/upload.sh](scripts/upload.sh) to understand this flow better.
 
-I highly recommend trying with `devnet` and going through the `scripts/upload.sh` to understand how it works.
+1. Edit the content of (assets_template_sample)(assets_template_sample).
+2. Go over (Validating your project assets)https://hackmd.io/@levicook/HJcDneEWF#Validating-your-project-assets and make sure your `JSON` is filled as expected.
+3. Currently this flow will look for `__creators__` inside the `JSON` and replace it with your `solana address` during the `upload` process.
+4. Run `./scripts/run_upload.sh <cluster-name> <date>` , for example `./scripts/run_upload.sh  devnet 2021-01-01` and it will go through the entire flow in the (Metaplex Candy Machine Tutorial)[https://hackmd.io/@levicook/HJcDneEWF].
 
-I highly recommend trying with `devnet` and going through the `scripts/upload.sh` to understand how it works.
+### File Structure
+* [scripts/run_upload.sh](scripts/upload.sh) - Wrapper helper, main script to use.
+* [scripts/upload.sh](scripts/upload.sh) - Main script that follows (Metaplex Candy Machine Tutorial)[https://hackmd.io/@levicook/HJcDneEWF].
+* [Dockerfile](Dockerfile) - `Dockerfile` used for the image, can also use (metaplex-docker image)[https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker].
+* (assets_template_sample)(assets_template_sample) - Sample of `JSON` / `PNG` files.
+* Auxilary scripts:
+  * [scripts/build.sh](scripts/build.sh) - Rebuilding the `Docker` image.
+  * [scripts/attach.sh](scripts/attach.sh) - Attaching into a container `Docker`.
+  * [scripts/run.sh](scripts/run.sh) - Launch `Docker` container and make it wait.
+  * [scripts/run_and_attach.sh](scripts/run_and_attach.sh) - Launch `Docker` container and attach to it.
+  * [scripts/stop.sh](scripts/stop.sh) - Stop `Docker` container.
 
-* [docker hub image](https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker)
+### Docker Hub
+(metaplex-docker image)[https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker]
 
 ### References
 
