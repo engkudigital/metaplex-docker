@@ -5,3 +5,4 @@ old.logs
 run_upload.sh
 *.swp
 envfile
+outputs

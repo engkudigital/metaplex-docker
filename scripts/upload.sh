@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [ "$#" -ne 3 ] ; then
   echo "Please provide 2 arguments : Solana cluster (devnet/testnet/mainnet) , keypair path and start date"
   exit 1
@@ -12,14 +11,24 @@ case $1 in
     echo "Supplied network isn't devnet/testnet/mainnet , please fix and retry" && exit 1 ;;
 esac
 
-if [ ! -f "$2" ] ; then
-  echo "Can't find file $2"
+keypair=$2
+start_date=$3
+keypair_dir=$(dirname ${keypair})
+keypair_base=$(basename ${keypair})
+mkdir -p "${keypair_dir}"
+
+if [ ! -z "${solana_key}" ] ; then
+  echo "${solana_key}" > ${keypair}
+else
+  echo "solana_key envar is empty"
   exit 1
-else 
-  keypair=$2
 fi
 
-start_date=$3
+if [ ! -r "${keypair}" ] ; then
+  echo "Can't find file '${keypair}'"
+  exit 1
+fi
+
 
 echo "solana config before:"
 solana config get
@@ -38,7 +47,6 @@ if [ "devnet" = "${network}" ] ; then
   echo "devnet detected, requesting airdrop"
   solana airdrop 10 --keypair ${keypair}
 fi
-
 
 solana_creator_address=$(solana address)
 mkdir -p old.logs
@@ -71,7 +79,7 @@ if ! metaplex set_start_date --env ${network} --keypair ${keypair} --date ${star
 fi
 cat .cache/${network}-temp | jq '.items' > logs/items.log
 
-cat > envfile <<- EOM
+cat > logs/envfile <<- EOM
 REACT_APP_CANDY_MACHINE_ID=$(cat logs/create_candy_machine.log | sed -e 's/create_candy_machine Done: //')
 REACT_APP_CANDY_START_DATE=$(cat logs/set_start_date.log | sed -e 's/set_start_date Done //' | sed -e 's/ .*//')
 REACT_APP_CANDY_MACHINE_CONFIG=$(cat .cache/${network}-temp | jq '.program.config')
@@ -80,8 +88,19 @@ REACT_APP_SOLANA_RPC_HOST="https://explorer-api.${network}.solana.com"
 REACT_APP_TREASURY_ADDRESS=$(solana address --keypair ${keypair})
 EOM
 
-cp -fr envfile outputs/
-cp -fr logs/ outputs/
+echo -e "\n\n\n"
 
-exit 0
+for filename in logs/* ; do
+  echo ""
+  echo "--------------------------"
+  echo "--- START FILE : ${filename}"
+  echo "--------------------------"
+  echo ""
+  cat "${filename}"
+  echo ""
+  echo "--------------------------"
+  echo "--- END FILE : ${filename}"
+  echo "--------------------------"
+  echo ""
+done
 

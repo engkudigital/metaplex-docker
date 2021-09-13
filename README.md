@@ -7,7 +7,11 @@ and it will go through the entire flow in the reference tutorial.
 
 I highly recommend trying with `devnet` and going through the `scripts/upload.sh` to understand how it works.
 
-### Reference
+I highly recommend trying with `devnet` and going through the `scripts/upload.sh` to understand how it works.
+
+* [docker hub image](https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker)
+
+### References
 
 * [Metaplex Candy Machine - An awesome tutorial](https://hackmd.io/@levicook/HJcDneEWF)
 * [candy-machine-mint - Boilerplate UI](https://github.com/exiled-apes/candy-machine-mint)
