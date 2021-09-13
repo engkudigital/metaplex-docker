@@ -4,16 +4,16 @@
 
 I highly recommend trying with `devnet` and going through the [scripts/run_upload.sh](scripts/upload.sh) and  [scripts/upload.sh](scripts/upload.sh) to understand this flow better.
 
-1. Edit the content of (assets_template_sample)(assets_template_sample).
-2. Go over (Validating your project assets)https://hackmd.io/@levicook/HJcDneEWF#Validating-your-project-assets and make sure your `JSON` is filled as expected.
+1. Edit the content of [assets_template_sample](assets_template_sample).
+2. Go over [Validating your project assets](https://hackmd.io/@levicook/HJcDneEWF#Validating-your-project-assets) and make sure your `JSON` is filled as expected.
 3. Currently this flow will look for `__creators__` inside the `JSON` and replace it with your `solana address` during the `upload` process.
-4. Run `./scripts/run_upload.sh <cluster-name> <date>` , for example `./scripts/run_upload.sh  devnet 2021-01-01` and it will go through the entire flow in the (Metaplex Candy Machine Tutorial)[https://hackmd.io/@levicook/HJcDneEWF].
+4. Run `./scripts/run_upload.sh <cluster-name> <date>` , for example `./scripts/run_upload.sh  devnet 2021-01-01` and it will go through the entire flow in the [Metaplex Candy Machine Tutorial](https://hackmd.io/@levicook/HJcDneEWF).
 
 ### File Structure
 * [scripts/run_upload.sh](scripts/upload.sh) - Wrapper helper, main script to use.
-* [scripts/upload.sh](scripts/upload.sh) - Main script that follows (Metaplex Candy Machine Tutorial)[https://hackmd.io/@levicook/HJcDneEWF].
-* [Dockerfile](Dockerfile) - `Dockerfile` used for the image, can also use (metaplex-docker image)[https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker].
-* (assets_template_sample)(assets_template_sample) - Sample of `JSON` / `PNG` files.
+* [scripts/upload.sh](scripts/upload.sh) - Main script that follows [Metaplex Candy Machine Tutorial](https://hackmd.io/@levicook/HJcDneEWF).
+* [Dockerfile](Dockerfile) - `Dockerfile` used for the image, can also use [metaplex-docker image](https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker).
+* [assets_template_sample](assets_template_sample) - Sample of `JSON` / `PNG` files.
 * Auxilary scripts:
   * [scripts/build.sh](scripts/build.sh) - Rebuilding the `Docker` image.
   * [scripts/attach.sh](scripts/attach.sh) - Attaching into a container `Docker`.
@@ -22,7 +22,7 @@ I highly recommend trying with `devnet` and going through the [scripts/run_uploa
   * [scripts/stop.sh](scripts/stop.sh) - Stop `Docker` container.
 
 ### Docker Hub
-(metaplex-docker image)[https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker]
+[metaplex-docker image](https://hub.docker.com/repository/docker/ohaddahan/metaplex-docker)
 
 ### References
 
