@@ -25,8 +25,8 @@ esac
 
 start_date=$2
 
+mkdir -p outputs
 docker run \
-  --security-opt label:disable \
   --network host \
   -e solana_key="$(cat ${keypair})" \
   -v ${PWD}/scripts:/user/workdir/scripts \

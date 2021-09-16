@@ -77,6 +77,8 @@ if ! metaplex set_start_date --env ${network} --keypair ${keypair} --date ${star
   echo "metaplex set_start_date failed"
   exit 1
 fi
+
+cp .cache/${network}-temp logs/cache-${network}-temp.log
 cat .cache/${network}-temp | jq '.items' > logs/items.log
 
 cat > logs/envfile <<- EOM
